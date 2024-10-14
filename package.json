@@ -1,0 +1,51 @@
+{
+  "name": "magreth",
+  "version": "1.0.0",
+  "description": "A desktop application for magreth with notifications and offline support.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win"
+  },
+  "keywords": [],
+  "author": "Tachera Sasi <tacherasasi@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^32.1.2",
+    "electron-builder": "^25.0.5"
+  },
+  "dependencies": {
+    "is-online": "^11.0.0"
+  },
+  "build": {
+    "appId": "com.ekilie.magreth",
+    "productName": "magreth",
+    "files": [
+      "main.js",
+      "preload.js",
+      "assets/**/*",
+      "offline.html"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "sign": false
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.gz"
+      ],
+      "icon": "assets/images/magreth.png",
+      "category": "Utility",
+      "maintainer": "ekilie <support@ekilie.com>"
+    },
+    "extraMetadata": {
+      "homepage": "https://magreth.ekilie.com"
+    }
+  }
+}
